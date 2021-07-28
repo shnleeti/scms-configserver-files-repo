@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: greeting-service
+
+greetting-service:
+  greeting: "Ola"
+  default-value: "Mundo Prod"
+management:
+  endpoints:
+    web:
+      exposure:
+        include:
+        - '*'
