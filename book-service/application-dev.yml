@@ -3,13 +3,13 @@ server:
 eureka:
   client:
     service-url:
-      defaultZone: http://discovery-server:8761/eureka
+      defaultZone: http://localhost:8761/eureka
 spring:
   application:
     name: book-service
   datasource:
     driver-class-name: org.mariadb.jdbc.Driver
-    url: jdbc:mariadb://mariadb:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mariadb://localhost:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
     username: root
     password: scmsmariadb
   jpa:
@@ -17,7 +17,7 @@ spring:
       ddl-auto: update
     show-sql: true
   flyway:
-    url: jdbc:mariadb://mariadb:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    url: jdbc:mariadb://localhost:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
     #    schemas: book-service-db
     user: root
     password: scmsmariadb
