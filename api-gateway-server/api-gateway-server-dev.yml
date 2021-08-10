@@ -7,9 +7,6 @@ eureka:
 spring:
   application:
     name: api-gateway-server
-  config:
-    import:
-      - optional:configserver:http://localhost:8888/
   cloud:
     gateway:
       discovery:
@@ -34,3 +31,9 @@ spring:
   sleuth:
     sampler:
       probability: 1.0
+  zipkin:
+    base-url: http://zipkin-server:9411/
+    sender:
+      type: rabbit
+rabbit:
+  uri: amqp://guest:guest@rabbit-mq-server:5672
