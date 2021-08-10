@@ -28,8 +28,14 @@ spring:
   sleuth:
     sampler:
       probability: 1.0
+  rabbitmq:
+    host: rabbit-mq-server
   zipkin:
     base-url: http://zipkin-server:9411/
+    sender:
+      type: rabbit
+rabbit:
+  uri: amqp://guest:guest@rabbit-mq-server:5672
 resilience4j:
   retry:
     instances:
