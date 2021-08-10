@@ -1,0 +1,43 @@
+server:
+  port: 8100
+eureka:
+  client:
+    service-url:
+      defaultZone: http://discovery-server:8761/eureka
+spring:
+  application:
+    name: book-service
+  datasource:
+    driver-class-name: org.mariadb.jdbc.Driver
+    url: jdbc:mariadb://mariadb:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    username: root
+    password: scmsmariadb
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: true
+  flyway:
+    url: jdbc:mariadb://mariadb:3306/book-service-db?useSSL=false&serverTimezone=UTC&enabledTLSProtocols=TLSv1.2
+    #    schemas: book-service-db
+    user: root
+    password: scmsmariadb
+  jackson:
+    default-property-inclusion: NON_NULL
+    serialization:
+      fail-on-empty-beans: false
+  sleuth:
+    sampler:
+      probability: 1.0
+  zipkin:
+    base-url: http://zipkin-server:9411/
+resilience4j:
+  retry:
+    instances:
+      default:
+        max-attempts: 4
+        wait-duration: 1s
+        enable-exponential-backoff: true
+springdoc:
+  api-docs:
+    path: book-service/v3/api-docs
+  show-actuator: true
